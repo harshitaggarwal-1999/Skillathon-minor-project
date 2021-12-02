@@ -1,0 +1,72 @@
+<% layout ('/layouts/boilerplate_provider')%>
+    <h1>MY PROFILE</h1>
+        <table class="table">
+            <tr class="table-dark">
+                <th>Organisation Name</th>               
+                <th>Name</th>            
+                <th>Phone No.</th>
+                <th>Email Address</th>
+                <th>Total Vacancies</th>
+                <th>No of job profiles</th>
+                <th>Total Compensation</th>                
+                
+            </tr>
+            
+                
+                <tr class="table-light">
+                    <td><%= users.org_name %></td>
+                    <td><%= users.name %></td>
+                    <td><%= users.phoneNo %></td>
+                    <td><%= users.email %></td>
+                    <td><%= users.vacancies %></td>
+                    <td><%= users.job_profiles %></td>
+                    <td><%= users.total_compensation %></td>
+                
+
+                </tr>
+               
+        </table>
+
+    <h2>PROFILES ENTERED</h2>
+
+    <table class="table">
+        <tr class="table-dark">
+            <th>Organisation Name</th>
+            <th>Job Profile</th>
+            <th>Vacancies</th>
+            <th>Compensation</th>
+            <th>Location</th>
+            <th>Brief Profile overview</th>
+            <th>10th required?</th>
+            <th>12th required?</th>
+            <th>Graduation required?</th>
+            <th>Post graduation required?</th>
+            <!-- <th>Gold badge required?</th>
+            <th>Silver badge required?</th>
+            <th>Bronze badge required?</th> -->
+
+
+        </tr>
+        
+        <% for (let userr of userrr) {%>
+
+        <tr class="table-light">
+            <td><%= userr.org_name %></td>
+            <td><%= userr.job_profile %></td>
+            <td><%= userr.vacancies %></td>
+            <td><%= userr.profile_compensation %></td>
+            <td><%= userr.profile_location %></td>
+            <td><%= userr.brief_overview_of_profile %></td>
+            <td><%= userr.req_tenth %></td>
+            <td><%= userr.req_twelfth %></td>
+            <td><%= userr.req_graduation_degree %></td>
+            <td><%= userr.req_post_graduation_degree %></td>
+            <!-- <td><%= userr.gold_required %></td>
+            <td><%= userr.silver_required %></td>
+            <td><%= userr.bronze_required %></td> -->
+            
+
+        </tr>
+        
+        <% }%>
+    </table>

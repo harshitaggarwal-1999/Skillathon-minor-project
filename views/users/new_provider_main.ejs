@@ -1,0 +1,81 @@
+<% layout ('/layouts/boilerplate')%>
+<div class="row">
+    <h3 style="font-weight: 800; color: black;" class="text-center">Register as a job provider today!</h3>
+    <div class="card col-6 offset-3 mt-4" style="background-color: darkorange; font-weight: 600; fill-opacity: 0.5;">
+    <form class="row g-3 needs-validation" action="/job_providers" method="POST" novalidate>
+        <div class="form-group col-9 offset-1" style="fill-opacity: 1.0;">
+
+        <div class="mb-2 mt-3">
+        <label for="org_name">Enter organisation name</label>
+        <input class="form-control" type="text" name="org_name" id="org_name" pattern="[a-zA-Z0-9]+[a-zA-Z0-9 ]+" required><br/>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter organisation name. No special characters allowed.
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="name">Enter your full name</label>
+        <input class="form-control" type="text" name="name" id="name" pattern="[A-Z][A-Za-z ]+[A-Z]*[A-Za-z]*" required><br/>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter full name using only alphabets, no numerical/special symbols allowed.
+        </div>
+        </div>
+
+    <div class="mb-2">
+        <label for="phoneNo">Enter mobile number </label>
+        <input class="form-control" type="tel" name="phoneNo" pattern="[1-9]{1}[0-9]{9}" id="phoneNo" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter 10-digit mobile number
+        </div>
+    </div>
+
+        <div class="mb-2">
+        <label for="email">Enter email address</label>
+        <input class="form-control" type="email" name="email" id="email" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" required><br />
+        </div>
+
+        <div class="mb-2">
+            <label for="password">Enter password (Must contain 8 or more characters that are of at least one number, and one
+                uppercase and lowercase letter)</label>
+            <input class="form-control" type="password" name="password" id="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br />
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter the password containing 8 or more characters at least one number, and one uppercase and lowercase
+                letter
+            </div>
+        </div>
+ 
+        <div class="mb-2">
+        <label for="vacancies">Enter the number of vacancies in your organisation</label>
+        <input class="form-control" type="text" name="vacancies" id="vacancies" pattern="[1-9]+[0-9]*" required><br />
+        </div>
+
+        <div class="mb-2">
+        <label for="job_profiles">Enter the job profiles available in your organisation</label>
+        <input class="form-control" type="text" name="job_profiles" id="job_profiles" pattern="[a-zA-Z, ]+[a-zA-Z0-9, ]+$" required><br />
+        </div>
+
+        <div class="mb-2">
+        <label for="total_compensation">Enter the total compensation going to be offered by your organisation</label>
+        <input class="form-control" type="text" name="total_compensation" pattern="[1-9]+[0-9]*" id="total_compensation" required><br />
+        </div>
+
+        <div class="mb-3 mt-2">
+        <input class="btn btn-dark form-control" type="submit" name="submit" value="Submit" />
+        </div>
+        </div>
+    </form>
+    </div>
+</div>

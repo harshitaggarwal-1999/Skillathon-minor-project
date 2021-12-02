@@ -1,0 +1,101 @@
+<% layout ('/layouts/boilerplate_provider')%>
+<div class="row">
+    <h3 style="font-weight: 800; color: black;" class="text-center">Edit your profile</h3>
+    <div class="card col-6 offset-3 mt-4" style="background-color: darkorange; font-weight: 600; fill-opacity: 0.5;">
+        <form class="row g-3 needs-validation" action="/editProvider" method="POST" novalidate>
+            <div class="form-group col-9 offset-1" style="fill-opacity: 1.0;">
+
+                <div class="mb-2 mt-3">
+                    <label for="org_name">Enter organisation name</label>
+                    <input class="form-control" type="text" name="org_name" id="org_name" pattern="^[a-zA-Z0-9]+$"
+                        value="<%= users.org_name %>" disabled="disabled" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter organisation name. No special characters allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="name">Enter your full name</label>
+                    <input class="form-control" type="text" name="name" id="name"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        value="<%= users.name %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter full name using only alphabets, no numerical/special symbols allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="phoneNo">Enter mobile number </label>
+                    <input class="form-control" type="tel" name="phoneNo" pattern="[1-9]{1}[0-9]{9}" id="phoneNo"
+                        value="<%= users.phoneNo %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter 10-digit mobile number
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="email">Enter email address</label>
+                    <input class="form-control" type="email" name="email" id="email" value="<%= users.email %>" disabled="disabled" required><br />
+                </div>
+
+                <div class="mb-2">
+                    <label for="password">Enter password</label>
+                    <input class="form-control" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  value="<%= users.password %>" required><br />
+                </div>
+
+                <div class="mb-2">
+                    <label for="vacancies">Enter the number of vacancies in your organisation</label>
+                    <input class="form-control" type="text" name="vacancies" id="vacancies" value="<%= users.vacancies %>" required><br />
+                </div>
+
+                <div class="mb-2">
+                    <label for="job_profiles">Enter the job profiles available in your organisation</label>
+                    <input class="form-control" type="text" name="job_profiles" id="job_profiles"  value="<%= users.job_profiles %>" required><br />
+                </div>
+
+                <div class="mb-2">
+                    <label for="total_compensation">Enter the total compensation going to be offered by your
+                        organisation</label>
+                    <input class="form-control" type="number" name="total_compensation" id="total_compensation"
+                         value="<%= users.total_compensation %>" required><br />
+                </div>
+
+                <div class="mb-3 mt-2">
+                    <input class="btn btn-dark form-control" type="submit" name="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+</script>

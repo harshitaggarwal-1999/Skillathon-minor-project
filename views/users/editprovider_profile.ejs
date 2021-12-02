@@ -1,0 +1,155 @@
+<% layout ('/layouts/boilerplate_provider')%>
+<div class="row">
+    <h3 style="font-weight: 800; color:black;" class="text-center">Edit your job profiles</h3>
+    <div class="card col-6 offset-3 mt-4" style="background-color: darkorange; font-weight: 600; fill-opacity: 0.5;">
+        <form class="row g-3 needs-validation" action="/job_provider_profiles" method="POST" novalidate>
+            <div class="form-group col-9 offset-1" style="fill-opacity: 1.0;">
+
+                <div class="mb-2 mt-3">
+                    <label for="org_name">Enter organisation name</label>
+                    <input class="form-control" type="text" name="org_name" id="org_name" pattern="^[a-zA-Z0-9]+$"
+                        value="<%= users.org_name %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter organisation name. No special characters allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="job_profile">Enter job profile</label>
+                    <input class="form-control" type="text" name="job_profile" id="job_profile" pattern="[a-zA-Z.,-]+"
+                        value="<%= users.job_profile %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter comma-separated job profiles
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="vacancies">Enter the number of vacancies</label>
+                    <input class="form-control" type="number" name="vacancies" id="vacancies"
+                        value="<%= users.vacancies %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="profile_compensation">Enter the profile compensation (in rupees)</label>
+                    <input class="form-control" type="number" name="profile_compensation" id="profile_compensation"
+                        value="<%= users.profile_compensation %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="profile_location">Enter the profile city</label>
+                    <input class="form-control" type="text" name="profile_location" id="profile_location"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        required value="<%= users.profile_location %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Enter profile city. No special symbols/numbers allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="brief_overview_of_profile">Enter the brief overview of profile</label>
+                    <input class="form-control" type="textarea" name="brief_overview_of_profile"
+                        id="brief_overview_of_profile" pattern="^[a-zA-Z0-9.,-]+$" required
+                        value="<%= users.brief_overview_of_profile %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid profile overview.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="req_tenth">Should the candidate be 10th pass?</label>
+
+                    <input type="radio" name="req_tenth" id="req_tenth" value="yes"
+                        onclick="document.getElementById('req_twelfth').disabled=false;" )>Yes
+                    <input type="radio" name="req_tenth" id="req_tenth" value="no" checked>No<br />
+                </div>
+
+                <div class="mb-2">
+                    <label for="req_twelfth">Should the candidate be 12th pass?</label>
+
+                    <input type="radio" name="req_twelfth" id="req_twelfth" value="yes" disabled="disabled"
+                        onclick="document.getElementById('req_graduation_degree').disabled=false; document.getElementById('req_post_graduation_degree').disabled=false;"
+                        required>Yes
+                    <input type="radio" name="req_twelfth" id="req_twelfth" value="no" checked>No<br />
+                </div>
+
+                <div class="mb-3">
+                    <label for="req_graduation_degree">Entire the required graduation degree(if any).</label>
+
+                    <select class="form-control" name="req_graduation_degree" id="req_graduation_degree"
+                        disabled="disabled" required>
+                        <option value="B. Tech">B. Tech</option>
+                        <option value="BBA">BBA</option>
+                        <option value="B. Sc">B. Sc</option>
+                        <option value="MBBS">M.B.B.S.</option>
+                        <option value="B. Com">B. Com</option>
+                        <option value="B. Arch">B. Arch</option>
+                        <option value="other">Others</option>
+                        <option value="none" selected>None</option>
+                    </select><br />
+                </div>
+
+                <div class="mb-3">
+                    <label for="req_post_graduation_degree">Entire the required post graduation degree(if any). Enter
+                        none in case of none</label>
+
+                    <select class="form-control" name="req_post_graduation_degree" disabled="disabled"
+                        id="req_post_graduation_degree" required>
+                        <option value="M. Tech" selected>M. Tech</option>
+                        <option value="MBA">MBA</option>
+                        <option value="M. Sc">M. Sc</option>
+                        <option value="MD">M.D.</option>
+                        <option value="M. Com">M. Com</option>
+                        <option value="M. Arch">M. Arch</option>
+                        <option value="other">Others</option>
+                        <option value="none" selected>None</option>
+                    </select><br />
+                </div>
+
+                <div class="mb-3 mt-2">
+                    <input class="btn btn-dark form-control" type="submit" name="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+</script>

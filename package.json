@@ -1,0 +1,27 @@
+{
+  "name": "Backend_MongoDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "botkit": "^4.10.0",
+    "ejs": "^3.1.5",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "express-recaptcha": "^5.0.2",
+    "express-session": "^1.17.1",
+    "mailgun-js": "^0.22.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.11.2",
+    "node-captcha-generator": "0.0.1",
+    "nodemailer": "^6.4.17",
+    "svg-captcha": "^1.4.0"
+  }
+}

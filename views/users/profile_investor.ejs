@@ -1,0 +1,32 @@
+<% layout ('/layouts/boilerplate_investor')%>
+    <h1>MY PROFILE</h1>
+    <table class="table" >
+        <tr class="table-dark">
+            <th>Name</th>
+            <th>Phone No.</th>
+            <th>Email Address</th>
+            <th>Investment Budget</th>
+            <th>Expected Return</th>
+            <th>Is profit sharing involved?</th>
+            <th>First Field of Preference</th>
+            <th>Second Field of Preference</th>
+            <th>Preferred Qualification</th>
+
+
+        </tr>
+        
+
+        <tr class="table-light">
+            <td><%= users.name %></td>
+            <td><%= users.phoneNo %></td>
+            <td><%= users.email %></td>
+            <td><%= users.investment_budget %></td>
+            <td><%= users.expected_return %></td>
+            <td><%= users.profit_sharing %></td>
+            <td><%= users.preferred_field_first %></td>
+            <td><%= users.preferred_field_second %></td>
+            <td><%= users.preferred_qualification %></td>
+
+        </tr>
+        
+    </table>

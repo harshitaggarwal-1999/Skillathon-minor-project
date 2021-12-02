@@ -1,0 +1,134 @@
+<% layout ('/layouts/boilerplate')%>
+<div class="row">
+    <h3 style="font-weight: 800; color: black;" class="text-center">Register as an investor today!</h3>
+    <div class="card col-6 offset-3 mt-4" style="background-color: darkorange; font-weight: 600; fill-opacity: 0.5;">
+    <form class="row g-3 needs-validation" action="/investors" method="POST" novalidate>
+        <div class="form-group col-9 offset-1" style="fill-opacity: 1.0;">
+
+        <div class="mb-2 mt-3">
+        <label for="name">Enter full name</label>
+        <input class="form-control" type="text" name="name" id="name" pattern="[A-Z][A-Za-z ]+[A-Z]*[A-Za-z]*" required><br />
+    <div class="valid-feedback">
+        Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter full name using only alphabets, no numerical/special symbols allowed.
+    </div>
+    </div>
+
+    <div class="mb-2">
+        <label for="phoneNo">Enter mobile number </label>
+        <input class="form-control" type="tel" name="phoneNo" pattern="[1-9]{1}[0-9]{9}" id="phoneNo" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter 10-digit mobile number
+        </div>
+    </div>
+
+        <div class="mb-2">
+        <label for="email">Enter email address (abc@example.com)</label>
+        <input class="form-control" type="email" name="email" id="email" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter email id in specified format
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="password">Enter password (Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter)</label>
+        <input class="form-control" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter the password containing 8 or more characters at least one number, and one uppercase and lowercase letter
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="investment_budget">Enter your investment budget(in rupees)</label>
+        <input class="form-control" type="text" name="investment_budget" pattern="[1-9]+[0-9]+" id="investment_budget" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="expected_return">Enter your expected return(in rupees)</label>
+        <input class="form-control" type="text" name="expected_return" pattern="[0-9]+" id="expected_return" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="profit_sharing">Is profit sharing involved?</label>
+        <input type="radio" name="profit_sharing" id="profit_sharing" value="yes" required>Yes
+        <input type="radio" name="profit_sharing" id="profit_sharing" value="no">No<br />
+        <div class="invalid-feedback">
+            Please select one of the above
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="preferred_field_first">Enter first preferred domain of investment</label><br />
+        <select class=" form-control select-picker" name="preferred_field_first" id="preferred_field_first" required>
+            <option value="science and technology">Science and Technology</option>
+            <option value="arts">Arts</option>
+            <option value="social entrepreneurship">Social Entrepreneurship</option>
+            <option value="women empowerment">Women Empowerment</option>
+            <option value="education">Education</option>
+            <option value="health sector">Health and Wellness</option>
+            <option value="safety">Safety</option>
+            <option value="others"  selected>Others</option>
+        </select><br />
+        <div class="invalid-feedback">
+            Please select one of the above
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="preferred_field_second">Enter second preferred domain of investment</label><br />
+        <select class="form-control select-picker" name="preferred_field_second" id="preferred_field_second" required>
+            <option value="science and technology" selected>Science and Technology</option>
+            <option value="arts">Arts</option>
+            <option value="social entrepreneurship">Social Entrepreneurship</option>
+            <option value="women empowerment">Women Empowerment</option>
+            <option value="education">Education</option>
+            <option value="health sector">Health and Wellness</option>
+            <option value="safety">Safety</option>
+            <option value="others" selected>Others</option>
+        </select><br />
+        <div class="invalid-feedback">
+            Please select one of the above
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="preferred_qualification" required>Enter preferred graduation qualification</label><br />
+        <select class="select-picker form-control" name="preferred_qualification" id="preferred_qualification" >
+            <option value="B. Tech">B. Tech</option>
+            <option value="BBA">BBA</option>
+            <option value="B. Sc">B. Sc</option>
+            <option value="MBBS">M.B.B.S.</option>
+            <option value="B. Com">B. Com</option>
+            <option value="B. Arch">B. Arch</option>
+            <option value="other">Others</option>
+            <option value="none" selected>None</option>
+        </select><br />
+        <div class="invalid-feedback">
+            Please select one of the above
+        </div>
+        </div>
+
+        <div class="mb-3 mt-2">
+        <input class="btn btn-dark form-control" type="submit" name="submit" value="Submit" />
+        </div>
+        </div>
+    </form>
+</div>
+</div>

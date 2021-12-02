@@ -1,0 +1,54 @@
+<% layout ('/layouts/boilerplate_seeker')%>
+        <h1>MY PROFILE</h1>
+        <table class="table table-responsive">
+            <tr class="table-dark">
+                <th>Name</th>
+                <th>Phone No.</th>
+                <th>Email Address</th>
+                <th>Completed class 10?</th>
+                <th> Class 10th Organization</th>
+                <th>Completed class 12th</th>
+                <th>Class 12th Organization</th>
+                
+            </tr>
+            
+                
+                <tr class="table-light">
+                    <td><%= users.name %></td>
+                    <td><%= users.phoneNo %></td>
+                    <td><%= users.email %></td>
+                    <td><%= users.tenth %></td>
+                    <td><%= users.tenth_org %></td>
+                    <td><%= users.twelfth %></td>
+                    <td><%= users.twelfth_org %></td>
+                    
+                </tr>
+               
+        </table>
+
+        <table class="table table-responsive">
+            <tr class="table-dark">
+            <th> Completed Graduation?</th>
+            <th>Graduation Degree</th>
+            <th>Graduation Organization</th>
+            <th>Completed Post Graduation?</th>
+            <th>Post Graduation Degree</th>
+            <th>Post Graduation Organization</th>
+        
+            </tr>
+        
+        
+            <tr class="table-light">
+                <td><%= users.graduation%></td>
+                <td><%= users.graduation_degree%></td>
+                <td><%= users.graduation_org %></td>
+                <td><%= users.post_graduation %></td>
+                <td><%= users.post_graduation_degree %></td>
+                <td><%= users.post_graduation_org %></td>
+            </tr>
+        
+        </table>
+
+        
+
+       

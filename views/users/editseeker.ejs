@@ -1,0 +1,210 @@
+<% layout ('/layouts/boilerplate_seeker')%>
+<div class="row">
+    <h3 style="font-weight: 800; color: black;" class="text-center">Edit your profile</h3>
+    <div class="card col-6 offset-3 mt-4" style="background-color: darkorange; font-weight: 600; fill-opacity: 0.5;">
+        <form class="row g-3 needs-validation" action="/editSeeker?_method=PUT" method="POST" novalidate>
+            <div class="form-group col-9 offset-1" style="fill-opacity: 1.0;">
+
+                <div class="mb-2 mt-3">
+                    <label for="name">Enter full name</label>
+                    <input class="form-control" type="text" name="name" id="name"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        required value="<%= users.name %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter full name using only alphabets, no numerical/special symbols allowed.
+                    </div>
+                </div>
+
+
+                <div class="mb-2">
+                    <label for="phoneNo">Enter mobile number </label>
+                    <input class="form-control" type="tel" name="phoneNo" pattern="[1-9]{1}[0-9]{9}" id="phoneNo"
+                        value="<%= users.phoneNo %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter 10-digit mobile number
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="email">Enter email address (abc@example.com)</label>
+                    <input class="form-control" type="email" name="email" id="email" required value="<%= users.email %>" disabled="true"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter email id in specified format
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="password">Enter password</label>
+                    <input class="form-control" type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="<%= users.password %>" required><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a password
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="tenth">Have you completed 10th standard?</label>
+                    <input type="radio" name="tenth" id="tenth" value="yes" required
+                        onclick="document.getElementById('tenth_org').disabled=false;document.getElementById('twelfth').disabled=false;" <%= users.tenth === 'yes' ? 'checked' : '' %>>Yes
+                    <input type="radio" name="tenth" id="tenth" value="no" <%= users.tenth === 'no' ? 'checked' : '' %>>No<br />
+                    <div class="invalid-feedback">
+                        Please select one of the above
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="tenth_org">If yes, specify your school</label>
+                    <input class="form-control" type="text" name="tenth_org" id="tenth_org" disabled="disabled"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        required value="<%= users.tenth_org %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        No special symbols allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="twelfth">Have you completed 12th standard?</label>
+                    <input type="radio" name="twelfth" id="twelfth" value="yes" required disabled="disabled"
+                        onclick="document.getElementById('twelfth_org').disabled=false;document.getElementById('graduation').disabled=false;">Yes
+                    <input type="radio" name="twelfth" id="twelfth" value="no">No<br />
+                    <div class="invalid-feedback">
+                        Please select one of the above
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="twelfth_org">If yes, specify your school</label>
+                    <input class="form-control" type="text" name="twelfth_org" id="twelfth_org" disabled="disabled"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        required value="<%= users.twelfth_org %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        No special symbols allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="graduation">Have you completed graduation?</label>
+                    <input type="radio" name="graduation" id="graduation" value="yes" required disabled="disabled"
+                        onclick="document.getElementById('graduation_org').disabled=false;document.getElementById('graduation_degree').disabled=false;document.getElementById('post_graduation').disabled=false;">Yes
+                    <input type="radio" name="graduation" id="graduation" value="no">No<br />
+                    <div class="invalid-feedback">
+                        Please select one of the above
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="graduation_org">If yes, specify your school</label>
+                    <input class="form-control" type="text" name="graduation_org" id="graduation_org"
+                        disabled="disabled"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        required value="<%= users.graduation_org %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        No special symbols allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="graduation_degree">Enter graduation qualification</label>
+                    <select class="select-picker form-control" name="graduation_degree" id="graduation_degree"
+                        disabled="disabled" value="<%= users.graduation_degree %>" required>
+                        <option value="B. Tech" <%= users.graduation_degree === 'B. Tech' ? 'selected' : '' %>>B. Tech</option>
+                        <option value="BBA" <%= users.graduation_degree === 'BBA' ? 'selected' : '' %>>BBA</option>
+                        <option value="B. Sc" <%= users.graduation_degree === 'B. Sc' ? 'selected' : '' %>>B. Sc</option>
+                        <option value="MBBS" <%= users.graduation_degree === 'MBBS' ? 'selected' : '' %>>M.B.B.S.</option>
+                        <option value="B. Com" <%= users.graduation_degree === 'B. Com' ? 'selected' : '' %>>B. Com</option>
+                        <option value="B. Arch" <%= users.graduation_degree === 'B. Arch' ? 'selected' : '' %>>B. Arch</option>
+                        <option value="other" <%= users.graduation_degree === 'other' ? 'selected' : '' %>>Others</option>
+                        <option value="none" <%= users.graduation_degree === 'none' ? 'selected' : '' %>>None</option>
+                    </select><br />
+                </div>
+
+                <div class="mb-2">
+                    <label for="post_graduation">Have you completed post-graduation?</label>
+                    <input type="radio" name="post_graduation" id="post_graduation" value="yes" required
+                        disabled="disabled"
+                        onclick="document.getElementById('post_graduation_degree').disabled=false;document.getElementById('post_graduation_org').disabled=false;">Yes
+                    <input type="radio" name="post_graduation" id="post_graduation" value="no">No<br />
+                    <div class="invalid-feedback">
+                        Please select one of the above
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="post_graduation_org">If yes, specify your school</label>
+                    <input class="form-control" type="text" name="post_graduation_org" id="post_graduation_org"
+                        disabled="disabled"
+                        pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$"
+                        required value="<%= users.post_graduation_org %>"><br />
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        No special symbols allowed.
+                    </div>
+                </div>
+
+                <div class="mb-2">
+                    <label for="post_graduation_degree">Enter post-graduation qualification</label>
+                    <select class="select-picker form-control" id="post_graduation_degree" name="post_graduation_degree"
+                        disabled="disabled" required value="<%= users.post_graduation_degree %>">
+                        <option value="M. Tech">M. Tech</option>
+                        <option value="MBA">MBA</option>
+                        <option value="M. Sc">M. Sc</option>
+                        <option value="MD">M.D.</option>
+                        <option value="M. Com">M. Com</option>
+                        <option value="M. Arch">M. Arch</option>
+                        <option value="other">Others</option>
+                        <option value="none">None</option>
+                    </select><br />
+                </div>
+
+                <div class="mb-3">
+                    <input class="btn btn-dark form-control" type="submit" name="submit" value="Submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+</script>

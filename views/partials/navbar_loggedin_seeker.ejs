@@ -1,0 +1,73 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Skillathon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <form class="form mt-auto" action="/home" method="GET">
+                    <button class="btn btn-dark">Home</button>
+                </form>
+                </li>
+                
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/view/job-providers" method="GET">
+                        <button class="btn btn-dark">View Job Profiles</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/seekers/resume" method="GET">
+                        <button class="btn btn-dark">Resume Building Tips</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                <form class="form mt-auto" action="/seekers/scholarships" method="GET">
+                    <button class="btn btn-dark">Scholarships</button>
+                </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/seekers/interview_prep" method="GET">
+                        <button class="btn btn-dark">Interview Preparation</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/seekers/quiz" method="GET">
+                        <button class="btn btn-dark">Take Quizzes</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/seekers/skills" method="GET">
+                        <button class="btn btn-dark">Hot Skills Today!</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/myprofile_seeker" method="GET">
+                        <button class="btn btn-dark">My Profile</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/editSeeker" method="GET">
+                        <button class="btn btn-dark">Edit Profile</button>
+                    </form>
+                </li>
+                <li class="nav-item" style="align-self: flex-end;">
+                    <form class="form mt-auto" action="/logout" method="POST">
+                        <button class="btn btn-dark">Log Out</button>
+                    </form>
+                </li>
+
+                
+
+            </ul>
+        </div>
+    </div>
+</nav>

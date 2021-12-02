@@ -1,0 +1,224 @@
+<% layout ('/layouts/boilerplate_entrepreneur')%>
+<div class="row">
+    <h3 style="font-weight: 800; color: black;" class="text-center">Edit your profile</h3>
+    <div class="card col-6 offset-3 mt-4" style="background-color: darkorange; font-weight: 600; fill-opacity: 0.5;">
+    <form class="row g-3 needs-validation" action="/editEntrepreneur?_method=PUT" method="POST" novalidate>
+        <div class="form-group col-9 offset-1" style="fill-opacity: 1.0;">
+        
+        <div class="mb-2 mt-3">
+        <label for="name">Enter full name</label>
+        <input class="form-control" type="text" name="name" id="name" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" 
+        required value="<%= users.name %>"><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter full name using only alphabets, no numerical/special symbols allowed.
+        </div>
+        </div>
+
+        <div class="mb-2">
+            <label for="phoneNo">Enter mobile number </label>
+            <input class="form-control" type="tel" name="phoneNo" pattern="[1-9]{1}[0-9]{9}" id="phoneNo" value="<%= users.phoneNo %>" required><br />
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please enter 10-digit mobile number
+            </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="email">Enter email address (abc@example.com)</label>
+        <input class="form-control" type="email" name="email" id="email"  required value="<%= users.email %>" disabled="true"><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter email id in specified format
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="password">Enter password</label>
+        <input class="form-control" type="password" name="password" id="password" value="<%= users.password %>" required ><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a password
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="venture_name">Enter the name of your venture/organisation/product</label>
+        <input class="form-control" type="text" name="venture_name" id="venture_name" pattern="^[a-zA-Z0-9]+$" value="<%= users.venture_name %>" required ><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter venture name. No special characters allowed.
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="team_leader">Enter the team leader's full name</label>
+        <input class="form-control" type="text" name="team_leader" id="team_leader" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" 
+        value="<%= users.team_leader %>"required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter full name using only alphabets, no numerical/special symbols allowed.
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="brief_idea_overview">Brief Idea Overview : </label><br />
+        <textarea class="form-control" rows="5" cols="50" name="brief_idea_overview" id="brief_idea_overview" pattern="^[a-zA-Z0-9.,-]+$" value="<%= users.text %>" required>
+        </textarea><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a valid & brief idea overview.
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="funding_required">Enter in rupees the funding required by your organisation</label>
+        <input class="form-control" type="number" name="funding_required" id="funding_required" value="<%= users.funding_required %>" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter required funding
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="category">Enter a category for your venture</label><br />
+        <select class="form-control" name="category" id="category" 
+        disabled="disabled" value="<%= users.category %>"  required>
+            <option value="science and technology" <%= users.category === 'science and technology' ? 'selected' : '' %>>Science and Technology</option>
+            <option value="arts" <%= users.category === 'arts' ? 'selected' : '' %>>Arts</option>
+            <option value="social entrepreneurship" <%= users.category === 'social entrepreneurship' ? 'selected' : '' %>>Social Entrepreneurship</option>
+            <option value="women empowerment" <%= users.category === 'women empowerment' ? 'selected' : '' %>>Women Empowerment</option>
+            <option value="education" <%= users.category === 'education' ? 'selected' : '' %>>Education</option>
+            <option value="health sector" <%= users.category === 'health sector' ? 'selected' : '' %>>Health and Wellness</option>
+            <option value="safety" <%= users.category === 'safety' ? 'selected' : '' %>>Safety</option>
+            <option value="other" <%= users.category === 'other' ? 'selected' : '' %>>Others</option>
+        </select><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="start_date_of_venture">Enter the starting date of your venture</label>
+        <input class="form-control disableFuturedate" type="date" name="start_date_of_venture" id="start_date_of_venture" value="<%= users.start_date_of_venture %>" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a start date
+        </div>
+        </div>
+
+        <div class="mb-2 date">
+        <label for="current_number_of_employees">Enter the current no. of employees in your venture</label>
+        <input class="form-control" type="number" name="current_number_of_employees" id="current_number_of_employees" value="<%= users.current_number_of_employees %>" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter current number of employees
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="working_location">Enter your working location</label>
+        <input class="form-control" type="text" name="working_location" id="working_location" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" 
+        value="<%= users.working_location %>"required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter a valid working location
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="idea_phase">Is your project currently in the ideation phase?</label><br />
+        <input type="radio" name="idea_phase" id="idea_phase" value="yes" required
+        <%= users.idea_phase === 'yes' ? 'checked' : '' %>>Yes<br />
+        <input type="radio" name="idea_phase" id="idea_phase" value="no" <%= users.idea_phase === 'no' ? 'checked' : '' %>>No<br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please choose one of these options
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="current_annual_turnover">Enter the current annual turnover (in rupees) of your venture (Enter 0 if still in ideation phase)</label>
+        <input class="form-control" type="number" name="current_annual_turnover" id="current_annual_turnover" value="<%= users.current_annual_turnover %>" required><br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please enter current annual turnover
+        </div>
+        </div>
+
+        <div class="mb-2">
+        <label for="job_provider">Are you also a job provider</label><br />
+        <input type="radio" name="job_provider" id="job_provider" value="yes" 
+        required <%= users.job_provider === 'yes' ? 'checked' : '' %>>Yes<br />
+        <input type="radio" name="job_provider" id="job_provider" value="no" <%= users.profit_sharing === 'no' ? 'checked' : '' %>>No<br />
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Please choose one of these options
+        </div>
+        </div>
+
+        <div class="form-group mb-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label style="font-size: small;" class="form-check-label" for="invalidCheck">
+                    I agree that my team-leader identifies as a woman and I will furnish proof of the same in case asked in the future, otherwise I am liable to be blocked from this portal for all purposes.
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-3 mt-2">
+        <input class="form-control btn btn-dark" type="submit" name="submit" value="Submit" />
+        </div>
+        </div>
+    </form>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+        var currentDate = new Date();
+        $('.disableFuturedate').datepicker({
+            format: 'dd/mm/yyyy',
+            autoclose: true,
+            endDate: "currentDate",
+            maxDate: currentDate
+        }).on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+        $('.disableFuturedate').keyup(function () {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9^-]/g, '');
+            }
+        });
+    });
+</script>

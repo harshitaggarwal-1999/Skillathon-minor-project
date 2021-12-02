@@ -1,0 +1,30 @@
+<% layout ('/layouts/boilerplate_admin')%>
+    <h1>All Investors</h1>
+    <table class="table table-borderless" >
+        <tr class="table-dark">
+            <th>Name</th>
+            <th>Email Address</th>
+            <th>Investment Budget</th>
+            <th>Expected Return</th>
+            <th>Is profit sharing involved?</th>
+            <th>First Field of Preference</th>
+            <th>Second Field of Preference</th>
+            <th>Preferred Qualification</th>
+
+
+        </tr>
+        <% for (let user of users) {%>
+
+        <tr class="table-light">
+            <td><%= user.name %></td>
+            <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+            <td><%= user.investment_budget %></td>
+            <td><%= user.expected_return %></td>
+            <td><a href="/investors1?profit_sharing=<%= user.profit_sharing %>"><%= user.profit_sharing %></a></td>
+            <td><a href="/investors2?preferred_field_first=<%= user.preferred_field_first %>"><%= user.preferred_field_first %></a></td>
+            <td><a href="/investors3?preferred_field_second=<%= user.preferred_field_second %>"><%= user.preferred_field_second %></a></td>
+            <td><a href="/investors4?preferred_qualification=<%= user.preferred_qualification %>"><%= user.preferred_qualification %></a></td>
+
+        </tr>
+        <% }%>
+    </table>

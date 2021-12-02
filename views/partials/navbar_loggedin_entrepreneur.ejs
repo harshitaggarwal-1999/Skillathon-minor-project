@@ -1,0 +1,46 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Skillathon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/home" method="GET">
+                        <button class="btn btn-dark">Home</button>
+                    </form>
+                </li>
+                
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/view/investors" method="GET">
+                        <button class="btn btn-dark">View Investors</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/myprofile_entrepreneur" method="GET">
+                        <button class="btn btn-dark">My Profile</button>
+                    </form>
+                </li>
+
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/editEntrepreneur" method="GET">
+                        <button class="btn btn-dark">Edit Profile</button>
+                    </form>
+                </li>
+                
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/logout" method="POST">
+                        <button class="btn btn-dark">Log Out</button>
+                    </form>
+                </li>
+
+                
+
+            </ul>
+        </div>
+    </div>
+</nav>

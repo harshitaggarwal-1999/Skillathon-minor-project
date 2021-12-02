@@ -1,0 +1,51 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <form class="form mt-auto" action="/home" method="GET">
+                <button class="btn btn-dark">Skillathon</button>
+            </form>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form class="form mt-auto" action="/login" method="GET">
+                        <button class="btn btn-dark">Login</button>
+                    </form>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">
+                        Sign Up
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">
+                                <form class="form mt-auto" action="/register/seeker" method="GET">
+                                    <button class="btn">Job Seeker</button>
+                                </form>
+                            </a></li>
+                        <li><a class="dropdown-item" href="#">
+                                <form class="form mt-auto" action="/register/job_provider" method="GET">
+                                    <button class="btn">Job Provider</button>
+                                </form>
+                            </a></li>
+                        <li><a class="dropdown-item" href="#">
+                                <form class="form mt-auto" action="/register/entrepreneur" method="GET">
+                                    <button class="btn">Entrepreneur</button>
+                                </form>
+                            </a></li>
+                        <li><a class="dropdown-item" href="#">
+                                <form class="form mt-auto" action="/register/investor" method="GET">
+                                    <button class="btn">Investor</button>
+                                </form>
+                            </a></li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

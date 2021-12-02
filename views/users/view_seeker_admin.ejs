@@ -1,0 +1,32 @@
+<% layout ('/layouts/boilerplate_admin')%>
+    <h1>All Job Seekers</h1>
+    <table class="table">
+        <tr class="table-dark">
+            <th>Name</th>
+            <th>Email Address</th>
+            <th>Matriculate?</th>
+            <th>Passed class 12?</th>
+            <th>Graduate</th>
+            <th>Post-graduate?</th>
+            <!-- <th>Gold badges?</th>
+            <th>Silver badges?</th>
+            <th>Bronze badges?</th> -->
+
+
+        </tr>
+        <% for (let user of users) {%>
+
+        <tr class="table-light">
+            <td><%= user.name %></td>
+            <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+            <td><a href="/seekers?tenth=<%= user.tenth %>"><%= user.tenth %></a></td>
+            <td><a href="/seekers1?twelfth=<%= user.twelfth%>"><%= user.twelfth%></a></td>
+            <td><a href="/seekers2?graduation=<%= user.graduation %>"><%= user.graduation %></a></td>
+            <td><a href="/seekers3?post_graduation=<%= user.post_graduation %>"><%= user.post_graduation %></a></td>
+            <!-- <td><a href="/seekers4?gold=<%= user.gold_badge %>"><%= user.gold_badge %></a></td>
+            <td><a href="/seekers5?silver=<%= user.silver_badge %>"><%= user.silver_badge %></a></td>
+            <td><a href="/seekers6?bronze=<%= user.bronze_badge %>"><%= user.bronze_badge %></a></td> -->
+
+        </tr>
+        <% }%>
+    </table>

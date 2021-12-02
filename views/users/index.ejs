@@ -1,0 +1,35 @@
+<% layout ('/layouts/boilerplate_investor')%>
+        <h1>All Entrepreneurs</h1>
+        <table class="table">
+            <tr class="table-dark">
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Name of Venture</th>
+                <th>Funding Required</th>
+                <th>Category</th>
+                <th>Start Date</th>
+                <th>No. of Employees</th>
+                <th>Location</th>
+                <th>Annual Turnover</th>
+                
+                
+            </tr>
+            <% for (let user of users) {%>
+                
+                <tr class="table-light">
+                    <td><%= user.name %></td>
+                    <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+                    <td><%= user.venture_name %></td>
+                    <td><%= user.funding_required %></td>
+                    <td><a href="/entrepreneurs1?category=<%= user.category %>"><%= user.category %></a></td>
+                    <td><%= user.start_date_of_venture %></td>
+                    <td><%= user.current_number_of_employees %></td>
+                    <td><a href="/entrepreneurs2?working_location=<%= user.working_location %>"><%= user.working_location %></a></td>
+                    <td><%= user.current_annual_turnover %></td>
+
+                </tr>
+                <% }%>
+        </table>
+
+        
+

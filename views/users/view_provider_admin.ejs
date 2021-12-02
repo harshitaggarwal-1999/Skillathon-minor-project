@@ -1,0 +1,31 @@
+<% layout ('/layouts/boilerplate_admin')%>
+    <h1>All Job Providers</h1>
+    <table class="table">
+        <tr class="table-dark">
+            <th>Organisation Name</th>
+            <th>Job Profile</th>
+            <th>Compensation</th>
+            <th>Location</th>
+            <th>10th required?</th>
+            <th>12th required?</th>
+            <th>Graduation required?</th>
+            <th>Post graduation required?</th>
+
+
+        </tr>
+        <% for (let user of users) {%>
+
+        <tr class="table-light">
+            <td><a href="/providers1?org_name=<%= user.org_name %>"><%= user.org_name %></a></td>
+            <td><a href="/providers2?job_profile=<%= user.job_profile %>"><%= user.job_profile %></a></td>
+            <td><%= user.profile_compensation %></td>
+            <td><a href="/providers3?profile_location=<%= user.profile_location %>"><%= user.profile_location %></a></td>
+            <td><a href="/providers4?req_tenth=<%= user.req_tenth %>"><%= user.req_tenth %></a></td>
+            <td><a href="/providers5?req_twelfth=<%= user.req_twelfth %>"><%= user.req_twelfth %></a></td>
+            <td><a href="/providers6?req_graduation_degree=<%= user.req_graduation_degree %>"><%= user.req_graduation_degree %></a></td>
+            <td><a href="/providers7?req_post_graduation_degree=<%= user.req_post_graduation_degree %>"><%= user.req_post_graduation_degree %></a></td>
+            
+
+        </tr>
+        <% }%>
+    </table>

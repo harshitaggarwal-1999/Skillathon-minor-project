@@ -1,0 +1,53 @@
+<% layout ('/layouts/boilerplate_entrepreneur')%>
+        <h1>MY PROFILE</h1>
+        <table class="table">
+            <tr class="table-dark">
+                <th>Name</th>
+                <th>Phone No.</th>
+                <th>Email Address</th>
+                <th>Name of Venture</th>
+                <th>Team Leader</th>
+                <th>Idea Overview</th>
+                <th>Funding Required</th>
+                <th>Category</th>
+                
+            </tr>
+            
+                
+                <tr class="table-light">
+                    <td><%= users.name %></td>
+                    <td><%= users.phoneNo %></td>
+                    <td><%= users.email %></td>
+                    <td><%= users.venture_name %></td>
+                    <td><%= users.team_leader %></td>
+                    <td><%= users.brief_idea_overview %></td>
+                    <td><%= users.funding_required %></td>
+                    <td><%= users.category %></td>
+                </tr>
+              
+        </table>
+
+                <table class="table">
+                    <tr class="table-dark">
+                        <th>Start Date</th>
+                        <th>No. of Employees</th>
+                        <th>Location</th>
+                        <th>In Idea Phase?</th>
+                        <th>Annual Turnover</th>
+                        <th>Job Provider</th>
+                
+                
+                    </tr>
+                
+                
+                    <tr class="table-light">
+                        <td><%= users.start_date_of_venture %></td>
+                        <td><%= users.current_number_of_employees %></td>
+                        <td><%= users.working_location %></td>
+                        <td><%= users.idea_phase %></td>
+                        <td><%= users.current_annual_turnover %></td>
+                        <td><%= users.job_provider %></td>
+                
+                    </tr>
+                
+                </table>
